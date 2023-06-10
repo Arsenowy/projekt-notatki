@@ -27,5 +27,3 @@ if (isset($_POST['register'])) {
         echo 'Registration failed!';
     }
 }
-
-print_r($_POST);
