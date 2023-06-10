@@ -15,12 +15,14 @@ $db->connect();
 // Create a new User instance
 $user = new User($db->getConnection());
 
-// Handle login form submission
 if (isset($_POST['login'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
     if ($user->login($login, $password)) {
+        $userData = $user->getUserByLogin($login);
+        $_SESSION['user_id'] = $userData['id'];
+
         echo 'Login successful!';
     } else {
         echo 'Login failed!';
