@@ -16,18 +16,19 @@
 </head>
 
 <body>
-<form action="" method="post">
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="content" placeholder="Content" required></textarea>
-    <button type="submit" name="add_note">Add Note</button>
-</form>
-
-  <script src="./assets/vendor/js/jquery.js"></script>
-  <script src="./assets/vendor/js/popper.js"></script>
-  <script src="./assets/vendor/js/bootstrap.js"></script>
-  <script src="./assets/js/util/autoPadding.js"></script>
-  <script src="./assets/js/util/crossPlatform.js"></script>
-  <script src="./assets/js/main.js"></script>
+<form name="add-note" method="post" class="row g-3">
+  <div class="col-12">
+    <label for="title" class="form-label">Tytuł</label>
+    <input type="text" class="form-control" id="title" required>
+  </div>
+  <div class="col-12">
+    <label for="body" class="form-label">Treść</label>
+    <textfield type="text" class="form-control" id="body" required></textfield>
+  </div>
+  <div class="col-12">
+    <input value="Dodaj notatkę" name="add-note" type="submit" class="btn btn-primary">
+  </div>
+  </form>
 </body>
 
 </html>
