@@ -47,14 +47,19 @@ $database = 'notes';
 $db = new Database($host, $username, $password, $database);
 $db->connect();
 
-// Handle note form submission
 if (isset($_POST['add_note'])) {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
+  if (isset($_SESSION['user_id'])) {
+      $userId = $_SESSION['user_id'];
 
-    if ($note->add($title, $content)) {
-        echo 'Note added successfully!';
-    } else {
-        echo 'Failed to add note!';
-    }
+      $title = $_POST['title'];
+      $content = $_POST['content'];
+
+      if ($note->add($userId, $title, $content)) {
+          echo 'Note added successfully!';
+      } else {
+          echo 'Failed to add note!';
+      }
+  } else {
+      echo 'You must be logged in to add a note!';
+  }
 }

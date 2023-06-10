@@ -35,4 +35,17 @@ class User {
             return false;
         }
     }
+
+    public function getUserByLogin($login) {
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE login = ?");
+        $stmt->bind_param("s", $login);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
 }
